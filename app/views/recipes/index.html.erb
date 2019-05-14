@@ -1,6 +1,38 @@
 <h1> Receitas </h1>
-<ul>
-    <li> Bolo de Fubá </li>
-    <li> Pavê de Chocolate </li>
-    <li> Brigadeiro </li>
+
+<% @recipes.each do |recipe| %>
+
+    <article>
+        <header>
+            <h2> <%= recipe.name %> </h2>
+
+        </header>
+
+        <p>
+        <%= recipe.stuff %> 
+        </p>
+
+        <p>
+        <%= recipe.calories %> 
+        </p>
+
+        <table>
+
+        <tr>
+            <th>Modo de Preparo: </th>
+            <td> <%= recipe.prepare_mode %> </td>
+        <tr>
+
+
+        <tr>
+            <th>Custo do Prato: </th>
+            <td> <%= number_to_currency(recipe.cost) %> </td>
+        <tr>
+
+        </table>
+    </article>
+    <% end %>
+
+
+    
 </ul>
