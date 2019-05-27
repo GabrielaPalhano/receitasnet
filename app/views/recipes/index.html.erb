@@ -1,21 +1,27 @@
-<h1> Receitas </h1>
+<h1><%=pluralize(@recipes.size, "Receita", "Receitas") %></h1>
 
 <% @recipes.each do |recipe| %>
 
     <article>
         <header>
-            <h2> <%= recipe.name %> </h2>
+            <h2> <%= link_to recipe.name , recipe %> </h2>
+        <%= imagem(recipe)%>
+
 
         </header>
 
         <p>
-        <%= recipe.stuff %> 
+        <strong> Ingredientes: </strong> <%=recipe.stuff %> 
         </p>
 
         <p>
-        <%= recipe.calories %> 
+        <strong> Calorias: </strong> <%= recipe.calories %> 
         </p>
 
+
+        <p>
+        <strong> Duração: </strong> <%= recipe.duration.to_formatted_s (:time) %> min
+        </p>
         <table>
 
         <tr>
@@ -32,7 +38,7 @@
         </table>
     </article>
     <% end %>
+    </br>
 
-
+<%= link_to 'Nova Receita', new_recipe_path %>
     
-</ul>
