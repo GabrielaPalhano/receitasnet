@@ -15,8 +15,13 @@ end
 def update
     @recipe=Recipe.find(params[:id])
     recipe_params = params.require(:recipe).permit!
-    @recipe.update(recipe_params)
-    redirect_to @recipe
+
+    if @recipe.update(recipe_params)
+        redirect_to @recipe
+    else
+        render :edit
+    end
+
 end
 
 def new
@@ -27,9 +32,13 @@ end
 def create
     recipe_params = params.require(:recipe).permit!
     @recipe = Recipe.new(recipe_params)
-    @recipe.save
-    redirect_to @recipe
+    if @recipe.save
+        redirect_to @recipe
+    else
+        render :new
+    end
 end
+
 
 def destroy
     @recipe=Recipe.find(params[:id])
