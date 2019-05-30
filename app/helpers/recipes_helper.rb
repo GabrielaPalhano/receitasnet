@@ -4,7 +4,7 @@ module RecipesHelper
         if recipe.poster.blank?
             image_tag('noimage.png')
         else
-            image_tag(recipe.poster, :width => 150, :height => 150)
+            image_tag(recipe.poster, :width => 200, :height => 200)
         end
     end
 
