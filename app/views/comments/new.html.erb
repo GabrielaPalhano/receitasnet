@@ -1,0 +1,36 @@
+<div class ='container'>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2> Criando novo Comentário </h2>
+</div>
+<div class="panel-body">
+
+<%= form_for([@recipe, @comment]) do |f|%>
+<%= render 'layouts/errors', object: @comment %>
+
+<p class="form-group">
+<%= f.label :Nome %><br/>
+<%= f.text_field :name, autofocus: true, class:"form-control" %>
+</p>
+
+
+<p class="form-group">
+<%= f.label :Estrelas %><br/>
+<%= f.select :rating, Comment::RATING, prompt: 'Escolha a quantidade de estrelas', class:"form-control" %>
+</p>
+
+<p class="form-group">
+<%= f.label :Comentário %> <br/>
+<%= f.text_area :comment, placeholder: "Escreve seu comentário ...", class: "form-control" %>
+</p>
+
+<p>
+<%= f.submit class: 'btn btn-primary' %>
+<%= link_to 'Cancelar', recipes_path, class: 'btn btn-default' %>
+</p>
+
+<% end %>
+
+    </div>
+</div>
+</div>

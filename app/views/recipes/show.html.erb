@@ -51,6 +51,10 @@
 
 
 <%= link_to pluralize(@recipe.comments.size, 'Comentário', 'Comentários'), recipe_comments_path(@recipe) %>
+<%= link_to 'Novo Comentário', new_recipe_comment_path(@recipe), class: 'btn btn-primary' %>
+
+
+
 
 
 </div>
