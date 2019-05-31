@@ -9,5 +9,8 @@ class Recipe < ApplicationRecord
 
     KIND = %w(Carnes Aves Peixes Massas Saladas Doces)
     validates_inclusion_of :kind, in: KIND
+
+
+    has_many :comments, dependent: :destroy
     
 end
